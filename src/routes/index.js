@@ -5,6 +5,6 @@ import { routeUser } from "./routeUser.js";
 const tourRouter = express.Router();
 
 tourRouter.use('/tours', routeTour);
-tourRouter.use('/users', routeUser);
+routeUser.use('/users', routeUser);
 
 export default tourRouter;

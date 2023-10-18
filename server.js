@@ -8,7 +8,11 @@ import tourRouter from './src/routes/index.js';
 dotenv.config()
 const PORT=8080
 
+
+import cors from 'cors'
+
 const app=express();
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use('/api/v1',tourRouter)

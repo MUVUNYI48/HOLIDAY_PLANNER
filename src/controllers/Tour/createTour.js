@@ -12,7 +12,8 @@ cloudinary.config({
 
 
 export const createTour = async (req, res) => {
-    console.log('................... in upload image  ..............');
+
+    // console.log('................... in upload image  ..............');
 
     try {
         console.log(req.file);
