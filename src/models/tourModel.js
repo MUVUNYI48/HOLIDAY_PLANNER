@@ -5,20 +5,20 @@ import mongoose from "mongoose";
     backdropImage: String,
     title: String,
     description: String,
-    duration: Number, // Assuming it represents the number of days or hours
-    groupSize: Number,
-    price: Number,
-    discount: Number, // Percentage discount
+    duration: String,
+    groupSize: String,
+    price: String,
+    discount: String, 
     tourType: String,
-    departure: String, // Location or city of departure
-    seats: Number,
-    fromMonth: String, // Month of departure
-    toMonth: String, // Month of return
-    departureTime: String, // Time of departure
-    returnTime: String, // Time of return
-    gallery: [String], // An array of image URLs for the gallery
+    departure: String, 
+    seats: String,
+    fromMonth: String, 
+    toMonth: String, 
+    departureTime: String, 
+    returnTime: String, 
+    // gallery: [String]
   });
 
-  export const Tour= mongoose("Tour",tourSchema) 
+  export const Tour= mongoose.model("Tour",tourSchema) 
 
   

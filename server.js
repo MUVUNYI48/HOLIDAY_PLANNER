@@ -3,13 +3,16 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
-import { routeUser } from './src/routes/routeUser.js';
+import { routeImage, routeUser } from './src/routes/routeUser.js';
+import tourRouter from './src/routes/index.js';
 dotenv.config()
 const PORT=8080
 
 const app=express();
 app.use(bodyParser.json())
-app.use('/routeUser',routeUser);
+
+app.use('/api/v1',tourRouter)
+
 
 // http.createServer((req,res)=>{
 // console.log(`sever is running on ${PORT}`);

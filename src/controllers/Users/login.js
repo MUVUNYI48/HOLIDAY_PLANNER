@@ -1,6 +1,6 @@
-import { User } from "../models/userModels.js";
-import { createToken } from "../utils/createToken.js";
-import { comparePassword } from "../utils/passwordFunction.js";
+import { User } from "../../models/userModels.js";
+import { createToken } from "../../utils/createToken.js";
+import { comparePassword } from "../../utils/passwordFunction.js";
 
 export const login = async (req, res) => {
     try {

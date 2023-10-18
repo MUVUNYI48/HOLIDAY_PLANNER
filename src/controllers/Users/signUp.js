@@ -1,7 +1,7 @@
 
-import { User } from '../models/userModels.js'
-import { createToken } from '../utils/createToken.js';
-import { hashPassword} from '../utils/passwordFunction.js';
+import { User } from '../../models/userModels.js'
+import { createToken } from '../../utils/createToken.js';
+import { hashPassword} from '../../utils/passwordFunction.js';
 // import bcrypt from "jsonwebtoken"
 
 export const signUp = async (req, res) => {
