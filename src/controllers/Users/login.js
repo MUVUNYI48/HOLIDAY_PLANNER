@@ -30,10 +30,10 @@ export const login = async (req, res) => {
                 });
             }
             
-            console.log('......................................')
-            console.log('req.body.password:',req.body.password);
-            console.log('new password: ',user.password)
-            console.log('ispasswordcorrect:', isPasswordCorrect);
+            // console.log('......................................')
+            // console.log('req.body.password:',req.body.password);
+            // console.log('new password: ',user.password)
+            // console.log('ispasswordcorrect:', isPasswordCorrect);
 
         const token = createToken({
             id: user._id,
