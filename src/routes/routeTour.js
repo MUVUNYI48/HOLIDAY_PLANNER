@@ -5,6 +5,7 @@ import appRouter from '../middlewares/multerImage.js';
 import { deleteOneTour } from '../controllers/Tour/deleteOneTour.js';
 import { getAllTour } from '../controllers/Tour/getAllTour.js';
 import { getOneTour } from '../controllers/Tour/getOneTour.js';
+import { isAdmin } from '../middlewares/isAdmin.js';
 
 
 const routeTour=express.Router();
@@ -13,6 +14,6 @@ const routeTour=express.Router();
 routeTour.post('/pictures',appRouter,createTour);
 routeTour.delete('/deleteOneTour/:id',deleteOneTour);
 routeTour.get('/getAllTour',getAllTour);
-routeTour.get('/getOneTour/:id',getOneTour);
+routeTour.get('/getOneTour/:id',isAdmin,getOneTour);
 
 export default routeTour

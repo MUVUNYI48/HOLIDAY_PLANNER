@@ -6,7 +6,7 @@ export const getAllTour=async(req,res)=>{
     if(tour){
         console.log(tour,'tour')
         res.status(302).json({
-            message:tour
+            list_of_tour:tour
         })
     }
 }

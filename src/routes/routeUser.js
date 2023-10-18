@@ -18,5 +18,6 @@ routeUser.get('/getAllUser',getAllUser);
 // routeUser.use(verifyToken)
 routeUser.post('/login',login);
 
+export default routeUser;
 // routeImage.post('/picture',upload.single("image"),createTour);
 

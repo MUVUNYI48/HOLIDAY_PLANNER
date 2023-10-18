@@ -7,7 +7,7 @@ export const getOneTour = async (req, res) => {
 
     if (onetour) {
         return res.status(302).json({
-            message: 'one tour deleted successfully',
+            message: 'one tour found successfully',
             onetour
         })
     } else {

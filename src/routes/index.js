@@ -7,4 +7,4 @@ const tourRouter = express.Router();
 tourRouter.use('/tours', routeTour);
 tourRouter.use('/users', routeUser);
 
-export default tourRouter
+export default tourRouter;
