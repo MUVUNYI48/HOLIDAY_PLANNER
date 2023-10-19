@@ -16,7 +16,9 @@ import mongoose from "mongoose";
     toMonth: String, 
     departureTime: String, 
     returnTime: String, 
-    // gallery: [String]
+    gallery: {
+      type:Array,
+    }
   });
 
   export const Tour= mongoose.model("Tour",tourSchema) 

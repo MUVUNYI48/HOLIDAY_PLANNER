@@ -7,26 +7,25 @@ const storage = multer.diskStorage({
       cb(null, 'photo')
     },
     filename: function (req, file, cb) {
-     
       cb(null, file.originalname)
     }
   })
   
-const upload =  multer({dest:"photo", storage: storage});
+const upload =  multer({dest:"photo", storage: storage}).fields([{name:"backdropImage", maxCount:1}, {name:"gallery",maxCount:8}]);
 
-appRouter.post('/createTour', upload.single('backdropImage'), (req, res, next) => {
-//    console.log(req.file,":body") 
-//   if (req.file) {
-//    res.json({
-//       message: 'File is uploaded.',
-//       data: req.body,
-//     });
-    next();
-//   } else {
-//     return res.json({
-//       message: 'No file uploaded.',
-//     });
-//   }
-});
+// appRouter.post('/createTour', upload, (req, res, next) => {
+// //    console.log(req.file,":body") 
+// //   if (req.file) {
+// //    res.json({
+// //       message: 'File is uploaded.',
+// //       data: req.body,
+// //     });
+//     next();
+// //   } else {
+// //     return res.json({
+// //       message: 'No file uploaded.',
+// //     });
+// //   }
+// });
 
-export default appRouter;
+export default upload;

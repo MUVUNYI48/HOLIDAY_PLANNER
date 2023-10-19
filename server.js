@@ -3,8 +3,9 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
-import { routeImage, routeUser } from './src/routes/routeUser.js';
+import { routeUser } from './src/routes/routeUser.js';
 import tourRouter from './src/routes/index.js';
+import routeBooking from './src/routes/routeBooking.js';
 dotenv.config()
 const PORT=8080
 
@@ -17,16 +18,8 @@ app.use(bodyParser.json())
 
 app.use('/api/v1',tourRouter);
 app.use('/api/v1',routeUser);
-// app.use('/api/v1',routeBooking)
+app.use('/api/v1',routeBooking)
 
-
-// http.createServer((req,res)=>{
-// console.log(`sever is running on ${PORT}`);
-// }).listen(PORT)
-
-// app.get('/',(req,res)=>{
-//     res.send("hello world");
-// })
 
 app.listen(PORT,()=>{
     console.log(`the app is listening on the ${PORT}`)
