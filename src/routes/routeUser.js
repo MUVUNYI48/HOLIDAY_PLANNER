@@ -4,7 +4,7 @@ import { signUp } from "../controllers/Users/signUp.js";
 import { getAllUser } from "../controllers/Users/getAllUser.js";
 import { login } from "../controllers/Users/login.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
-import { createTour } from "../controllers/Tour/createTour.js";
+// import { createTour } from "../controllers/Tour/createTour.js";
 import Upload from "../middlewares/multerImage.js";
 
 const app=express();

@@ -15,8 +15,9 @@ const app=express();
 app.use(cors())
 app.use(bodyParser.json())
 
-app.use('/api/v1',tourRouter)
-app.use('/api/v1',routeUser)
+app.use('/api/v1',tourRouter);
+app.use('/api/v1',routeUser);
+// app.use('/api/v1',routeBooking)
 
 
 // http.createServer((req,res)=>{
