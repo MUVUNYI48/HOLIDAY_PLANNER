@@ -12,8 +12,8 @@ const routeTour=express.Router();
 
 // routeUser.post('/createTour',createTour);
 routeTour.post('/pictures',appRouter,createTour);
-routeTour.delete('/deleteOneTour/:id',deleteOneTour);
+routeTour.delete('/deleteOneTour/:id',isAdmin,deleteOneTour);
 routeTour.get('/getAllTour',getAllTour);
-routeTour.get('/getOneTour/:id',isAdmin,getOneTour);
+routeTour.get('/getOneTour/:id',getOneTour);
 
 export default routeTour

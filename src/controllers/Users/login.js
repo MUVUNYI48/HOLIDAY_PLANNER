@@ -12,7 +12,7 @@ export const login = async (req, res) => {
         let newUserPassword = req.body.password;
 
         const user = await User.findOne({ email: newUserEmail })
-        console.log('user', req.body.email)
+        console.log('user', user)
         if (!user) {
             return res.json({
                 message: "user not found",
