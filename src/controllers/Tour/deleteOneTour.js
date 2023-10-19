@@ -2,19 +2,22 @@ import { Tour } from "../../models/tourModel.js";
 
 export const deleteOneTour = async (req, res) => {
 
-    let Id = req.params.id
+    try {
 
-    let tour = await Tour.deleteOne({ _id: Id })
-    if (tour) {
+        let Id = req.params.id
+
+        let tour = await Tour.findByIdAndDelete(Id)
+        console.log(tour,'user');
+        if (!tour) {
+            return res.json({ message: "failed to delete user" })
+        }
         console.log("data", tour);
-        return res.json({
-            messaage: 'tour was deleted',
+        res.status(200).json({
+            messaage: 'tour  deleted',
             data: tour
         })
-    } else (data.deletedCount === 0)
-    {
-        res.json({ message: "data have been already deleted" })
+    } catch (error) {
+        console.log('error:', error);
     }
-    console.log("error:", err)
 
 }

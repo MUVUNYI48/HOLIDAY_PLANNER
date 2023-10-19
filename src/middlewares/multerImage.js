@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
   
 const upload =  multer({dest:"photo", storage: storage});
 
-appRouter.post('/pictures', upload.single('backdropImage'), (req, res, next) => {
+appRouter.post('/createTour', upload.single('backdropImage'), (req, res, next) => {
 //    console.log(req.file,":body") 
 //   if (req.file) {
 //    res.json({

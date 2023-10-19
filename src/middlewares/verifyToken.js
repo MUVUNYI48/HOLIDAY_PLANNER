@@ -12,11 +12,11 @@ export const verifyToken = async (req, res, next) => {
         }
         console.log("hello there");
 
-        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      await  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
-                return console.log('verify decoded:',decoded);
-                res.status(404).json({
-                    message: "failed to verfiy",decoded
+                console.log('verify decoded:', decoded);
+                return res.status(404).json({
+                    message: "failed to verfiy", decoded
                 })
             }
             console.log(decoded, 'decoded');
@@ -24,10 +24,6 @@ export const verifyToken = async (req, res, next) => {
 
             next();
         });
-
-
-
-
     } catch (error) {
         console.log(error, "error on server")
         return res.status(500).json({
