@@ -17,15 +17,16 @@ export const createTour = async (req, res) => {
 
     try {
         console.log(req.files.gallery);
-        let galleryImages =  []
+        let galleryImages = [];
 
         let image = await cloudinary.uploader.upload(req.files["backdropImage"][0].path)
 
-       for (let index = 0; index <req.files.gallery.length; index++) {
-          galleryImages.push((await cloudinary.uploader.upload(req.files.gallery[index].path)).secure_url)
-       }
+        for (let index = 0; index < req.files.gallery.length; index++) {
+            galleryImages.push((await cloudinary.uploader.upload(req.files.gallery[index].path)).secure_url)
+        }
 
-      console.log(galleryImages);
+        console.log(galleryImages);
+        
         // console.log("url", image.secure_url);
 
         // req.body.backdropImage = image.secure_url
@@ -34,8 +35,8 @@ export const createTour = async (req, res) => {
 
         let addToTour = await Tour.create({
             ...req.body,
-            backdropImage:image.secure_url,
-            gallery:galleryImages
+            backdropImage: image.secure_url,
+            gallery: galleryImages
         })
 
         if (!addToTour) {

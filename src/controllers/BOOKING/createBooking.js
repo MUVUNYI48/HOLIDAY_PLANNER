@@ -7,9 +7,13 @@ import { User } from "../../models/userModels.js";
 
 export const createBooking = async (req, res) => {
     try {
-        let {tourId} = Tour._id;
+        
+        const id=req.userId;
+        console.log('user id:',id);
 
-        console.log('tourId:',tourId);
+        let tour=await Tour.find();
+
+        console.log('tour data',tour[0]._id);
 
 
         // if (bookingData) {
