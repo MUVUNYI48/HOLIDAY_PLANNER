@@ -12,8 +12,8 @@ const bookingSchema = mongoose.Schema({
         required: true
     },
     isPayed: {
-        type: String,
-        required: true
+        type: Boolean,
+        default:false
     },
     paymentMethod: {
         type: String,
