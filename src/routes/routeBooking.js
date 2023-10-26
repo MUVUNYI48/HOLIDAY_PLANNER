@@ -15,12 +15,12 @@ const routeBooking=express.Router();
  *         properties:
  *           tourID:
  *             type: string
- *           methodPayment:
+ *           paymentMethod:
  *             type: string
  * /api/v1/booking/createBooking:
  *   post:
  *     security:
- *       -bearerAuth: []
+ *       - bearerAuth: []
  *     tags: [Booking]
  *     summary: create Contact
  *    

@@ -27,7 +27,7 @@ export const createContact = async (req, res) => {
         from: process.env.EMAIL, 
         to: to_email, 
         subject: 'Test Email', 
-        text: 'Hello, this is a test email.' 
+        text: replying
     };
 
     // Use the transporter to send the email

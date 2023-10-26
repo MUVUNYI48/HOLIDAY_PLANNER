@@ -164,10 +164,12 @@ routeUser.post('/signup',signUp);
 routeUser.post('/login',login);
 /**
  * @swagger
- * /api/v1/users/changepassword:
+ * /api/v1/users/changePassword:
  *  post:
  *    tags: [Users]
  *    summary: update password
+ *    security:
+ *        - bearerAuth: []
  *    description: change password of user
  *    requestBody:
  *      required: true

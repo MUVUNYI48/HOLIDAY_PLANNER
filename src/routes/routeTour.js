@@ -88,10 +88,12 @@ routeTour.post('/createTourS',upload,createTour);
 
 /**
 * @swagger
- *  /deleteOneTour/{id}:
- *  delete:
+ *  /api/v1/tours/deleteOneTour/{id}:
+ *    delete:
  *     tags: [Tours]
  *     summary: Delete a tour by ID
+ *     security:
+ *        - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -100,7 +102,7 @@ routeTour.post('/createTourS',upload,createTour);
  *           type: string
  *         description: ID of the tour to delete.
  *     responses:
- *       '204':
+ *       '200':
  *         description: Tour deleted successfully
  *       '404':
  *         description: Tour not found
