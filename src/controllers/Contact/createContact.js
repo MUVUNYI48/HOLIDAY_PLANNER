@@ -17,17 +17,17 @@ export const createContact = async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL, // Your Gmail email address
+            user: process.env.EMAIL, 
             pass: process.env.PASSWORD,
         }
     });
 
     // Define the email options
     const mailOptions = {
-        from: process.env.EMAIL, // Sender email address
-        to: to_email, // Recipient email address
-        subject: 'Test Email', // Subject line
-        text: 'Hello, this is a test email.' // Plain text body
+        from: process.env.EMAIL, 
+        to: to_email, 
+        subject: 'Test Email', 
+        text: 'Hello, this is a test email.' 
     };
 
     // Use the transporter to send the email

@@ -13,8 +13,13 @@ const routeTour=express.Router();
 
 /**
  * @swagger
- * 
  * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       scheme: bearer
+ *       type: http
+ *       bearerFormat: JWT
+ * 
  *   schemas:
  *     Tour:
  *       type: object

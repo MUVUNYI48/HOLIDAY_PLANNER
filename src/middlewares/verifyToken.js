@@ -12,11 +12,11 @@ export const verifyToken = async (req, res, next) => {
         }
         console.log("hello there");
 
-        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
-                console.log('verify decoded:', decoded);
+                console.log('verify error:', err);
                 return res.status(404).json({
-                    message: "failed to verfiy", decoded
+                    message: "failed to verfiy", err
                 })
             }
             console.log(decoded, 'decoded');
