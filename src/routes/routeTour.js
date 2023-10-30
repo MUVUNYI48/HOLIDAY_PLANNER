@@ -170,6 +170,7 @@ routeTour.get('/getAllTours',getAllTour);
 /** 
  * 
  *@swagger
+ 
  *  /api/v1/tours/getOneTour/{id}:
  *   get:
 

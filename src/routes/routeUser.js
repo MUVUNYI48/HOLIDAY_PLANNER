@@ -5,6 +5,7 @@ import { getAllUser } from "../controllers/Users/getAllUser.js";
 import { login } from "../controllers/Users/login.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
 import { changePassword } from "../controllers/authentication/changePassword.js";
+import { deleteUser } from "../controllers/Users/deleteOneUser.js";
 
 const app=express();
 app.use(bodyParser.json())
@@ -195,6 +196,36 @@ routeUser.post('/login',login);
  * 
  */
 routeUser.post('/changepassword',verifyToken,changePassword);
+
+/**
+ * @swagger
+ * /api/v1/users/deleteOneUser:
+ *  delete:
+*     tags: [Users]
+*     summary: Get tour data by ID
+ *     security:
+ *       - bearerAuth: []
+*     parameters:
+*       - in: path
+*         name: id
+*         required: true
+*         schema:
+*           type: string
+*         description: ID of the tour to retrieve.
+*     responses:
+*       '200':
+*         description: user deleted Successful response
+*         content:
+*           application/json:
+*             schema:
+*               $ref: '#/components/schemas/User'
+*       '404':
+*         description: Tour not found
+* 
+*/
+
+
+routeUser.delete('/deleteOneUser/:id',deleteUser);
 
 export default routeUser;
 // routeImage.post('/picture',upload.single("image"),createTour);
