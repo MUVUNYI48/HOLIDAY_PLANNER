@@ -8,12 +8,12 @@ export const updateTour = async (req, res) => {
         const data = req.body;
 
         if (req_id) {
-            let updatedData = await Tour.findOneAndUpdate({_id: req_id, data});
-                
-            if(updatedData){
-                console.log('data found',updatedData);
-            }else{
-                console.log('data not found',updatedData);
+            let updatedData = await Tour.findOneAndUpdate({ _id: req_id, data });
+            console.log("updatedData", updatedData);
+            if (updatedData) {
+                console.log('data found', updatedData);
+            } else {
+                console.log('data not found', updatedData);
             }
 
             res.status(201).json({
@@ -29,6 +29,6 @@ export const updateTour = async (req, res) => {
 
 
     } catch (error) {
-        console.log('error',error.message)
+        console.log('error', error.message)
     }
 }
