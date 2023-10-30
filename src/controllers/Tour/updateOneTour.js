@@ -6,18 +6,21 @@ export const updateTour = async (req, res) => {
         const req_id = req.params.id;
         const data = req.body;
 
+        const filterData= await Tour.findById({ _id: req_id});
+
+        console.log("filterData", filterData);
+
         if (req_id) {
-            let updatedData = await Tour.findOneAndUpdate({ _id: req_id, data });
-            console.log("updatedData", updatedData);
+            const updatedData = await Tour.findByIdAndUpdate(req_id, data );
+            console.log("Data", data);
             if (updatedData) {
-                console.log('data found', updatedData);
+                res.status(201).json({
+                    message: "data updated"
+                })
             } else {
-                console.log('data not found', updatedData);
+                console.log('data not found');
             }
 
-            res.status(201).json({
-                message: "data updated", updatedData
-            })
         } else {
             res.status(401).json({
                 message: 'user not found',

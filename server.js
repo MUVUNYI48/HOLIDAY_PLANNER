@@ -32,6 +32,6 @@ app.listen(PORT,()=>{
     console.log(`the app is listening on the ${PORT}`)
 })
 
-mongoose.connect(process.env.DB_CONNECTION_DEV).then((res)=>{
+mongoose.connect(process.env.DB_CONNECTION_PRO).then((res)=>{
     console.log('database connected');
     })
