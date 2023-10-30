@@ -4,7 +4,6 @@ export const updateTour = async (req, res) => {
     try {
 
         const req_id = req.params.id;
-
         const data = req.body;
 
         if (req_id) {
