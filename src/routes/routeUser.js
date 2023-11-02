@@ -1,5 +1,5 @@
 import bodyParser from "body-parser";
-import express  from "express";
+import express from "express";
 import { signUp } from "../controllers/Users/signUp.js";
 import { getAllUser } from "../controllers/Users/getAllUser.js";
 import { login } from "../controllers/Users/login.js";
@@ -7,11 +7,11 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 import { changePassword } from "../controllers/authentication/changePassword.js";
 import { deleteUser } from "../controllers/Users/deleteOneUser.js";
 
-const app=express();
+const app = express();
 app.use(bodyParser.json())
 
-export const routeUser=express.Router();
-export const routeImage=express.Router();
+export const routeUser = express.Router();
+export const routeImage = express.Router();
 
 
 /**
@@ -91,7 +91,7 @@ export const routeImage=express.Router();
  */
 
 
-routeUser.get('/getAllUsers',getAllUser);
+routeUser.get('/getAllUsers', getAllUser);
 
 /** 
  *@swagger
@@ -130,7 +130,7 @@ routeUser.get('/getAllUsers',getAllUser);
 
  */
 
-routeUser.post('/signup',signUp);
+routeUser.post('/signup', signUp);
 
 /**
  * @swagger
@@ -162,10 +162,10 @@ routeUser.post('/signup',signUp);
  *         description: Internal server error */
 
 
-routeUser.post('/login',login);
+routeUser.post('/login', login);
 /**
  * @swagger
- * /api/v1/users/changePassword:
+ * /api/v1/users/changepassword:
  *  post:
  *    tags: [Users]
  *    summary: update password
@@ -195,7 +195,7 @@ routeUser.post('/login',login);
  *         description: intenal server error  
  * 
  */
-routeUser.post('/changepassword',verifyToken,changePassword);
+routeUser.post('/changepassword', verifyToken, changePassword);
 
 /**
  * @swagger
@@ -225,7 +225,7 @@ routeUser.post('/changepassword',verifyToken,changePassword);
 */
 
 
-routeUser.delete('/deleteOneUser/:id',deleteUser);
+routeUser.delete('/deleteOneUser/:id', verifyToken, deleteUser);
 
 export default routeUser;
 // routeImage.post('/picture',upload.single("image"),createTour);

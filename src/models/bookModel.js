@@ -13,12 +13,34 @@ const bookingSchema = mongoose.Schema({
     },
     isPayed: {
         type: Boolean,
-        default:false
+        default: false
     },
     paymentMethod: {
         type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    whoBooked: {
+        type: Object,
+        required: true
+    },
+    tourBooked: {
+        type: Object,
+        required: true
+    },
+    Status: {
+        type: String, default: "pending"
+    },
+    NumberOfTicket: {
+        type: Number
     }
+
+
+
+
 })
 
 export const Booking = mongoose.model('Booking', bookingSchema);

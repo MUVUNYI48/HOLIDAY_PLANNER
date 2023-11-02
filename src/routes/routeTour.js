@@ -1,5 +1,5 @@
 import express from 'express'
-import { createTour} from '../controllers/Tour/createTour.js';
+import { createTour } from '../controllers/Tour/createTour.js';
 import upload from '../middlewares/multerImage.js';
 import { deleteOneTour } from '../controllers/Tour/deleteOneTour.js';
 import { getAllTour } from '../controllers/Tour/getAllTour.js';
@@ -9,7 +9,7 @@ import { verifyToken } from '../middlewares/verifyToken.js';
 import { updateTour } from '../controllers/Tour/updateOneTour.js';
 
 
-const routeTour=express.Router();
+const routeTour = express.Router();
 
 /**
  * @swagger
@@ -24,8 +24,6 @@ const routeTour=express.Router();
  *     Tour:
  *       type: object
  *       properties:
- *         _id:
- *           type: string
  *         destination:
  *           type: string
  *         backdropImage:
@@ -75,15 +73,18 @@ const routeTour=express.Router();
  *         multipart/form-data:
  *           schema:
  *             $ref: '#/components/schemas/Tour'
+ * 
  *     responses:
  *       '201':
  *         description: Tour created successfully
+ *       '204':
+ *         description: tour not created successfully
  * 
  * 
  * 
  */
 
-routeTour.post('/createTourS',upload,createTour);
+routeTour.post('/createTourS', upload, createTour);
 
 
 /**
@@ -108,7 +109,7 @@ routeTour.post('/createTourS',upload,createTour);
  *         description: Tour not found
 */
 
-routeTour.delete('/deleteOneTour/:id',verifyToken,isAdmin,deleteOneTour);
+routeTour.delete('/deleteOneTour/:id', verifyToken, isAdmin, deleteOneTour);
 
 /** 
 * @swagger
@@ -164,7 +165,7 @@ routeTour.delete('/deleteOneTour/:id',verifyToken,isAdmin,deleteOneTour);
 *                     type: string
 */
 
-routeTour.get('/getAllTours',getAllTour);
+routeTour.get('/getAllTours', getAllTour);
 
 
 /** 
@@ -196,7 +197,7 @@ routeTour.get('/getAllTours',getAllTour);
  */
 
 
-routeTour.get('/getOneTour/:id',getOneTour);
+routeTour.get('/getOneTour/:id', getOneTour);
 
 
 /** 
@@ -228,6 +229,6 @@ routeTour.get('/getOneTour/:id',getOneTour);
  * 
  */
 
-routeTour.post('/updateOneTour/:id',updateTour)
+routeTour.post('/updateOneTour/:id', updateTour)
 
 export default routeTour    

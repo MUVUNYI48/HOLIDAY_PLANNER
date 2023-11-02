@@ -1,6 +1,7 @@
 import { Tour } from "../../models/tourModel.js";
+import { catchAsync } from "../../utils/catchAsync.js";
 
-export const getOneTour = async (req, res) => {
+export const getOneTour = catchAsync(async (req, res) => {
     let Id = req.params.id;
 
     let onetour = await Tour.findOne({ _id: Id })
@@ -10,10 +11,10 @@ export const getOneTour = async (req, res) => {
             message: 'one tour found successfully',
             onetour
         })
-    } else {
-        return res.status(412).json({
-            message: 'data not found'
-        })
     }
+    res.status(412).json({
+        message: 'data not found'
+    })
 
-}
+
+})

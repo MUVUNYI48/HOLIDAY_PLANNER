@@ -4,14 +4,14 @@ import { User } from "../../models/userModels.js";
 export const changePassword = async (req, res) => {
     try {
         //access one by one from req.body
-        const { currentPassword, newPassword } = req.body;
+        const { currentpassword, newpassword } = req.body;
 
         //this user is decoded
         let { userId } = req;
 
         let user = await User.findById(userId);
 
-        let isPasswordCorrect = await comparePassword(currentPassword, user.password)
+        let isPasswordCorrect = await comparePassword(currentpassword, user.password)
 
         if (!isPasswordCorrect) {
             return res.status(401).json({
@@ -19,14 +19,14 @@ export const changePassword = async (req, res) => {
             })
         }
 
-        let hashedPassword = await hashPassword(newPassword);
+        let hashedPassword = await hashPassword(newpassword);
 
         user.password = hashedPassword;
 
         user.save();
 
         res.status(200).json({
-            message:'password have been changed successfully 👍'
+            message: 'password have been changed successfully 👍'
         })
 
     } catch (error) {

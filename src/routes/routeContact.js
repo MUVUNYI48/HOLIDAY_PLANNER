@@ -1,8 +1,8 @@
-import express  from "express";
+import express from "express";
 import { createContact } from "../controllers/Contact/createContact.js";
 
 
-const contactRouter=express.Router();
+const contactRouter = express.Router();
 
 
 /**
@@ -15,7 +15,7 @@ const contactRouter=express.Router();
  *         properties:
  *           email:
  *             type: string
- *           replying:
+ *           message: 
  *             type: string
  * /api/v1/contact/createContact:
  *   post:
@@ -32,7 +32,7 @@ const contactRouter=express.Router();
  *       
  */
 
-contactRouter.post('/createContact',createContact);
+contactRouter.post('/createContact', createContact);
 
 export default contactRouter;
 

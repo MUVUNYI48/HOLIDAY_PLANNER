@@ -1,8 +1,9 @@
 import express from 'express'
 import { createBooking } from '../controllers/BOOKING/createBooking.js';
 import { verifyToken } from '../middlewares/verifyToken.js';
+import { getAllBookedTours } from '../controllers/BOOKING/getAllTours.js';
 
-const routeBooking=express.Router();
+const routeBooking = express.Router();
 
 
 /**
@@ -17,6 +18,19 @@ const routeBooking=express.Router();
  *             type: string
  *           paymentMethod:
  *             type: string
+ *           userID:
+ *             type: string
+ *           isPayed:
+ *             type: boolean
+ *           whoBooked:
+ *             type: object
+ *           tourbooked:
+ *             type: object
+ *           numberOfTicket:
+ *             type: number
+ *           status:
+ *             type: string
+ *             
  * /api/v1/booking/createBooking:
  *   post:
  *     security:
@@ -35,6 +49,70 @@ const routeBooking=express.Router();
  *       
  */
 
-routeBooking.post('/createBooking',verifyToken,createBooking);
+routeBooking.post('/createBooking', verifyToken, createBooking);
+
+/**
+ * @swagger
+ * 
+ * /api/v1/booking/getAllBookedTours:
+ *   get:
+ *     security:
+ *       - bearerAuth: []
+ *     tags: [Booking]
+ *     summary: get all BookedTours
+ *     parameters:
+ *       - name: _id
+ *         in: path
+ *         schema:
+ *           type: string
+ *         required: false
+ *       - in: query
+ *         name: userID
+ *         schema:
+ *           type: string
+ *         required: false
+ *       - in: query
+ *         name: tourID
+ *         schema:
+ *           type: string
+ *         required: false
+ *       - in: query
+ *         name: paymentMethod
+ *         schema:
+ *           type: string
+ *         required: false
+ *       - in: query
+ *         name: date
+ *         schema:
+ *           type: date
+ *         required: false
+ *       - in: query
+ *         name: isPayed
+ *         schema:
+ *           type: boalean
+ *         required: false
+ *       - in: query
+ *         name: numberOfTicket
+ *         schema:
+ *           type: number
+ *         required: false
+ *       - in: query
+ *         name: status
+ *         schema:  
+ *           type: string
+ *         required: false
+ * 
+ *     responses:
+ *       '200':
+ *          description: bookedTours found successfully
+ *       '404':
+ *          description: bookedTours not found
+ *       '403':
+ *          description: user not allowed to access this
+ * 
+ * 
+ */
+
+routeBooking.get('/getAllBookedTours', verifyToken, getAllBookedTours)
 
 export default routeBooking;
