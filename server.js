@@ -6,14 +6,15 @@ import { routeUser } from './src/routes/routeUser.js';
 import tourRouter from './src/routes/index.js';
 import routeBooking from './src/routes/routeBooking.js';
 import routeContact from './src/routes/routeContact.js'
+import cors from 'cors'
+import { swaggerSpec } from './swaggerConfig.js';
 
 //this will be for error handling
 import AppError from './src/utils/appError.js';
 import { errorController } from './src/controllers/errorController.js';
 import swaggerUi from 'swagger-ui-express'
+import { routePayment } from './src/routes/routePayment.js';
 
-import cors from 'cors'
-import { swaggerSpec } from './swaggerConfig.js';
 
 
 dotenv.config()
@@ -27,8 +28,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/v1', tourRouter);
 app.use('/api/v1', routeUser);
-app.use('/api/v1', routeBooking)
-app.use('/api/v1', routeContact)
+app.use('/api/v1', routeBooking);
+app.use('/api/v1', routeContact);
+app.use('/api/v1', routePayment);
 
 app.all('*', (req, res, next) => {
 
@@ -50,10 +52,16 @@ app.use(errorController);
 
 
 
-app.listen(PORT, () => {
-    console.log(`the app is listening on the ${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`the app is listening on the ${PORT}`)
+// })
 
 mongoose.connect(process.env.DB_CONNECTION_PRO).then((res) => {
     console.log('database connected');
 })
+
+
+
+app.listen(PORT, () => {
+    console.log(`Node server listening at http://localhost:${PORT}/`);
+});

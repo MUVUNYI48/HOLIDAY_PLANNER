@@ -2,6 +2,7 @@ import express from 'express'
 import { createBooking } from '../controllers/BOOKING/createBooking.js';
 import { verifyToken } from '../middlewares/verifyToken.js';
 import { getAllBookedTours } from '../controllers/BOOKING/getAllTours.js';
+import { numberOfBooked } from '../controllers/BOOKING/numberOfBooked.js';
 
 const routeBooking = express.Router();
 
@@ -114,5 +115,41 @@ routeBooking.post('/createBooking', verifyToken, createBooking);
  */
 
 routeBooking.get('/getAllBookedTours', verifyToken, getAllBookedTours)
+
+/**
+ * @swagger
+ * /api/v1/booking/numberOfBooked:
+ *  get:
+ *     security:
+ *       - bearerAuth: []
+ *     tags: [Booking]
+ *     summary: get all number of booked tour 
+ *     parameters:
+ *       - name: year
+ *         in: query 
+ *         schema:
+ *           type: string
+ *         required: true
+ *       - in: query
+ *         name: label
+ *         schema:
+ *           type: string
+ *         required: false
+ *       - in: path
+ *         name: count
+ *         schema:
+ *           type: number
+ * 
+ *     responses:
+ *       '200':
+ *          description: bookedTours found successfully
+ *       '404':
+ *          description: bookedTours not found
+ *       '403':
+ *          description: user not allowed to access this
+ * 
+ */
+
+routeBooking.get('/numberOfBooked', verifyToken, numberOfBooked)
 
 export default routeBooking;

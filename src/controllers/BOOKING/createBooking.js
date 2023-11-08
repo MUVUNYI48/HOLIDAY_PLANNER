@@ -13,11 +13,11 @@ export const createBooking = catchAsync(async (req, res) => {
 
     let tourid = await Tour.findOne({ _id: tourId });
 
-    if (tourId && userId) {
-        return res.json({
-            message: "you have already booked this tour"
-        })
-    }
+    // if (tourId && userId) {
+    //     return res.json({
+    //         message: "you have already booked this tour"
+    //     })
+    // }
 
     console.log('TOUR ID:', tourId);
 

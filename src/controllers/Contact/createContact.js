@@ -98,7 +98,7 @@ export const createContact = async (req, res) => {
         });
 
 
-    }, 60000) //after 5 minutes
+    }, 60000) //after 1 minutes
 
 };
 
