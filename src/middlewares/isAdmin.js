@@ -7,7 +7,7 @@ export const isAdmin = async (req, res, next) => {
         let user = await User.findById(userId); // Use findById directly
         if (!user) {
             // User not found
-           return res.status(404).json({
+            return res.status(404).json({
                 message: 'User not found'
             });
         }
@@ -17,7 +17,7 @@ export const isAdmin = async (req, res, next) => {
                 message: `You are not an admin, no access`
             });
         }
-        
+
         next();
 
         // Call next() outside the if block

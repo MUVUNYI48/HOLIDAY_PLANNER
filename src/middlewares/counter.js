@@ -1,15 +1,15 @@
 
-export const counter = (model)=>{
+export const counter = (model) => {
 
-    return (req,res,next)=>{
+    return (req, res, next) => {
 
         const options = {
             page: parseInt(req.query.page),
             limit: parseInt(req.query.limit),
         };
-    
-       model.paginate({}, options).then((data) => {
-           
+
+        model.paginate({}, options).then((data) => {
+
             res.counter = data;
             next();
             // res.status(200).json({

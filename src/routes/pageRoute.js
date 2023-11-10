@@ -88,5 +88,5 @@ export const pageRouter = express.Router();
  *         description: Tour not found
  */
 
-pageRouter.get('/tour',counter(User), pagination);
+pageRouter.get('/tour', counter(User), pagination);
 
