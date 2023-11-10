@@ -1,0 +1,27 @@
+
+    // const options = {
+    //     page: parseInt(req.query.page),
+    //     limit: parseInt(req.query.limit),
+    // };
+    // Tour.paginate({}, options).then((data) => {
+    //     res.status(200).json({
+    //         tours: data
+    //     })
+    //     // is is code error
+    // }).catch((err) => {
+    //     res.status(err.status || 500).json({
+    //         error: err.message
+    //     });
+    // });
+
+    // const page = parseInt(req.query.page);
+    // const skip = (page - 1) * PAGE_SIZE;
+    // let tour = await Tour.find()
+    // .skip(skip)
+    // .limit(6);
+    //     if (!tour) {
+    //         console.error('Could not find tour');
+    //     }
+    //     res.json({
+    //         data: tour
+    //     });

@@ -1,5 +1,8 @@
 import express from 'express';
 import { pagination } from '../controllers/Pagination/pagination';
+import { counter } from '../middlewares/counter';
+import { Tour } from '../models/tourModel';
+import { User } from '../models/userModels';
 
 export const pageRouter = express.Router();
 
@@ -85,5 +88,5 @@ export const pageRouter = express.Router();
  *         description: Tour not found
  */
 
-pageRouter.get('/tour', pagination);
+pageRouter.get('/tour',counter(User), pagination);
 
