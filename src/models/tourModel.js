@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const mongoosePaginate = require('mongoose-paginate-v2');
 
  const tourSchema = mongoose.Schema({
     destination: String,
@@ -21,6 +22,7 @@ import mongoose from "mongoose";
     }
   });
 
+  tourSchema.plugin(mongoosePaginate);
   export const Tour= mongoose.model("Tour",tourSchema) 
 
   

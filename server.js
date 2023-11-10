@@ -14,8 +14,7 @@ import AppError from './src/utils/appError.js';
 import { errorController } from './src/controllers/errorController.js';
 import swaggerUi from 'swagger-ui-express'
 import { routePayment } from './src/routes/routePayment.js';
-
-
+import { pageRouter } from './src/routes/pageRoute.js';
 
 dotenv.config()
 const PORT = 8080
@@ -31,6 +30,7 @@ app.use('/api/v1', routeUser);
 app.use('/api/v1', routeBooking);
 app.use('/api/v1', routeContact);
 app.use('/api/v1', routePayment);
+app.use('/api/v1',pageRouter);
 
 app.all('*', (req, res, next) => {
 
@@ -50,17 +50,13 @@ app.all('*', (req, res, next) => {
 //global error handler
 app.use(errorController);
 
-
-
 // app.listen(PORT, () => {
 //     console.log(`the app is listening on the ${PORT}`)
 // })
 
-mongoose.connect(process.env.DB_CONNECTION_PRO).then((res) => {
+mongoose.connect(process.env.DB_CONNECTION_DEV).then((res) => {
     console.log('database connected');
 })
-
-
 
 app.listen(PORT, () => {
     console.log(`Node server listening at http://localhost:${PORT}/`);

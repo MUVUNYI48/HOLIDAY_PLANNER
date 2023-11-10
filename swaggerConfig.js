@@ -10,10 +10,10 @@ const options = {
         },
         servers: [
             {
-                url:"https://holiday-planner.onrender.com",
+                url:"http://localhost:8080",
             },
             {
-                url:"http://localhost:8080",
+                url:"https://holiday-planner.onrender.com",
             },
         ]
     },

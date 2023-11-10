@@ -43,6 +43,10 @@ export const createBooking = catchAsync(async (req, res) => {
         ...req.body, UserID: userId, date: clock, whoBooked: user, tourBooked: tourid
     });
 
+    await Booking.create({
+        ...booked,Status:"success",
+    })
+    
     if (booked) {
 
         const transporter = nodemailer.createTransport({
@@ -81,6 +85,8 @@ export const createBooking = catchAsync(async (req, res) => {
                 msg: "you have booked a tour,check confirmation email ",
                 infoData: infoData
             });
+
+
 
         });
 

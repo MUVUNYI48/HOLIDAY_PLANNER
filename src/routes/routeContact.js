@@ -10,7 +10,7 @@ const contactRouter = express.Router();
  * 
  *   components:
  *     schemas:
- *       contact:
+ *       Contact:
  *         type: object
  *         properties:
  *           email:
@@ -19,7 +19,7 @@ const contactRouter = express.Router();
  *             type: string
  * /api/v1/contact/createContact:
  *   post:
- *     tags: [contact]
+ *     tags: [Contact]
  *     summary: create Contact
  *     requestBody:
  *       content:
